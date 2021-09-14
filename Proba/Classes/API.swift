@@ -1,9 +1,9 @@
 //
 //  API.swift
-//  AppboosterSDK
+//  Proba
 //
-//  Created by Appbooster on 22/07/2020.
-//  Copyright © 2020 Appbooster. All rights reserved.
+//  Created by Proba on 22/07/2020.
+//  Copyright © 2020 Proba. All rights reserved.
 //
 
 import Foundation
@@ -18,7 +18,7 @@ struct API {
   static func get(_ url: URL,
                   headers: [String: String]?,
                   timeoutInterval: TimeInterval,
-                  completion: @escaping (Data?, AppboosterABError?) -> Void) {
+                  completion: @escaping (Data?, ProbaABError?) -> Void) {
     var urlRequest = URLRequest(url: url)
     urlRequest.httpMethod = "GET"
     urlRequest.allHTTPHeaderFields = headers
@@ -27,7 +27,7 @@ struct API {
     URLSession.shared.dataTask(with: urlRequest) { data, response, error in
       if let error = error {
         DispatchQueue.main.async {
-          let abError = AppboosterABError(error: "URL error: \(error.localizedDescription)",
+          let abError = ProbaABError(error: "URL error: \(error.localizedDescription)",
             code: (error as? URLError)?.errorCode ?? 0)
           completion(nil, abError)
         }
@@ -37,7 +37,7 @@ struct API {
 
       guard let response = response as? HTTPURLResponse else {
         DispatchQueue.main.async {
-          let abError = AppboosterABError(error: "Invalid response from server",
+          let abError = ProbaABError(error: "Invalid response from server",
                                        code: 0)
           completion(nil, abError)
         }
@@ -47,7 +47,7 @@ struct API {
 
       guard 200 ... 299 ~= response.statusCode else {
         DispatchQueue.main.async {
-          let abError = AppboosterABError(error: "Server error",
+          let abError = ProbaABError(error: "Server error",
                                        code: response.statusCode)
           completion(nil, abError)
         }
@@ -57,7 +57,7 @@ struct API {
 
       guard let data = data else {
         DispatchQueue.main.async {
-          let abError = AppboosterABError(error: "Invalid response data",
+          let abError = ProbaABError(error: "Invalid response data",
                                        code: 0)
           completion(nil, abError)
         }

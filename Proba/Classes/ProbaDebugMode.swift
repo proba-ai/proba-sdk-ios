@@ -1,15 +1,15 @@
 //
-//  AppboosterDebugMode.swift
-//  AppboosterSDK
+//  ProbaDebugMode.swift
+//  Proba
 //
-//  Created by Appbooster on 22/07/2020.
-//  Copyright © 2020 Appbooster. All rights reserved.
+//  Created by Proba on 22/07/2020.
+//  Copyright © 2020 Proba. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-public struct AppboosterDebugMode {
+public struct ProbaDebugMode {
 
   static var usingShake: Bool = true
 

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3E269E1724C85170002C5608"
-               BuildableName = "AppboosterSDKExample.app"
-               BlueprintName = "AppboosterSDKExample"
-               ReferencedContainer = "container:AppboosterSDKExample.xcodeproj">
+               BuildableName = "ProbaExample.app"
+               BlueprintName = "ProbaExample"
+               ReferencedContainer = "container:ProbaExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3E269E1724C85170002C5608"
-            BuildableName = "AppboosterSDKExample.app"
-            BlueprintName = "AppboosterSDKExample"
-            ReferencedContainer = "container:AppboosterSDKExample.xcodeproj">
+            BuildableName = "ProbaExample.app"
+            BlueprintName = "ProbaExample"
+            ReferencedContainer = "container:ProbaExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3E269E1724C85170002C5608"
-            BuildableName = "AppboosterSDKExample.app"
-            BlueprintName = "AppboosterSDKExample"
-            ReferencedContainer = "container:AppboosterSDKExample.xcodeproj">
+            BuildableName = "ProbaExample.app"
+            BlueprintName = "ProbaExample"
+            ReferencedContainer = "container:ProbaExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

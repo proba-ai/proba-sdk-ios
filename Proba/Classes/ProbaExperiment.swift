@@ -1,18 +1,18 @@
 //
-//  AppboosterExperiment.swift
-//  AppboosterSDK
+//  ProbaExperiment.swift
+//  Proba
 //
-//  Created by Appbooster on 22/07/2020.
-//  Copyright © 2020 Appbooster. All rights reserved.
+//  Created by Proba on 22/07/2020.
+//  Copyright © 2020 Proba. All rights reserved.
 //
 
 import Foundation
 
-struct AppboosterExperiment: Codable {
+struct ProbaExperiment: Codable {
   let name: String
   let key: String
-  let status: AppboosterExperimentStatus
-  let options: [AppboosterExperimentOption]
+  let status: ProbaExperimentStatus
+  let options: [ProbaExperimentOption]
 
   enum CodingKeys: String, CodingKey {
     case name
@@ -34,15 +34,15 @@ struct AppboosterExperiment: Codable {
     name = try container.decode(String.self, forKey: .name)
     key = try container.decode(String.self, forKey: .key)
     let stringStatus = try container.decode(String.self, forKey: .status)
-    status = AppboosterExperimentStatus(rawValue: stringStatus) ?? .running
-    options = try container.decode([AppboosterExperimentOption].self, forKey: .options)
+    status = ProbaExperimentStatus(rawValue: stringStatus) ?? .running
+    options = try container.decode([ProbaExperimentOption].self, forKey: .options)
   }
 
   init(
     name: String,
     key: String,
-    status: AppboosterExperimentStatus,
-    options: [AppboosterExperimentOption]
+    status: ProbaExperimentStatus,
+    options: [ProbaExperimentOption]
   ) {
     self.name = name
     self.key = key

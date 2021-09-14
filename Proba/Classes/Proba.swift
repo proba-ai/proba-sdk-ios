@@ -1,17 +1,17 @@
 //
-//  AppboosterAB.swift
-//  AppboosterSDK
+//  ProbaAB.swift
+//  Proba
 //
-//  Created by Appbooster on 22/07/2020.
-//  Copyright © 2020 Appbooster. All rights reserved.
+//  Created by Proba on 22/07/2020.
+//  Copyright © 2020 Proba. All rights reserved.
 //
 
 import UIKit
 import AdSupport
 
-public final class AppboosterSDK: NSObject {
+public final class Proba: NSObject {
 
-  private let serverUrl: String = "https://api.appbooster.com"
+  private let serverUrl: String = "https://api.Proba.com"
   private let sdkToken: String
   private let appId: String
   private let deviceId: String
@@ -39,15 +39,15 @@ public final class AppboosterSDK: NSObject {
     self.knownKeys = Array(defaults.keys)
 
     defaultExperimentsValues = defaults.compactMap { key, value in
-      AppboosterExperimentValue(key: key, value: value as? AnyCodable ?? "", optionId: nil)
+      ProbaExperimentValue(key: key, value: value as? AnyCodable ?? "", optionId: nil)
     }
 
     self.deviceId = deviceId
-      ?? AppboosterKeychain.getDeviceId()
-      ?? AppboosterKeychain.setNewDeviceId()
+      ?? ProbaKeychain.getDeviceId()
+      ?? ProbaKeychain.setNewDeviceId()
     self.deviceProperties = deviceProperties
 
-    AppboosterDebugMode.usingShake = usingShake
+    ProbaDebugMode.usingShake = usingShake
 
     super.init()
 
@@ -61,17 +61,17 @@ public final class AppboosterSDK: NSObject {
     }
   }
 
-  private var experimentsValues: [AppboosterExperimentValue] = State.experimentsValues {
+  private var experimentsValues: [ProbaExperimentValue] = State.experimentsValues {
     didSet {
       State.experimentsValues = experimentsValues
     }
   }
-  private var defaultExperimentsValues: [AppboosterExperimentValue] = State.defaultExperimentsValues {
+  private var defaultExperimentsValues: [ProbaExperimentValue] = State.defaultExperimentsValues {
     didSet {
       State.defaultExperimentsValues = experimentsValues
     }
   }
-  private var debugExperimentsValues: [AppboosterExperimentValue] {
+  private var debugExperimentsValues: [ProbaExperimentValue] {
     return State.debugExperimentsValues
   }
 
@@ -81,11 +81,11 @@ public final class AppboosterSDK: NSObject {
   public var lastOperationDuration: TimeInterval = 0.0
 
   public func fetch(timeoutInterval: TimeInterval = 3.0,
-                    completion: @escaping (_ abError: AppboosterABError?) -> Void) {
+                    completion: @escaping (_ abError: ProbaABError?) -> Void) {
     guard let url = createUrl(path: API.path) else {
-      let abError = AppboosterABError(error: "Invalid url", code: 0)
+      let abError = ProbaABError(error: "Invalid url", code: 0)
 
-      debugAndLog("[AppboosterSDK] Error – \(abError.error), error code: \(abError.code)")
+      debugAndLog("[Proba] Error – \(abError.error), error code: \(abError.code)")
 
       completion(abError)
 
@@ -103,23 +103,23 @@ public final class AppboosterSDK: NSObject {
               self.lastOperationDuration = Date().timeIntervalSince(startDate)
 
               if let abError = abError {
-                self.debugAndLog("[AppboosterSDK] Error – \(abError.error), error code: \(abError.code)")
+                self.debugAndLog("[Proba] Error – \(abError.error), error code: \(abError.code)")
 
                 completion(abError)
               } else if let data = data {
                 do {
-                  let experimentsValuesResponse = try JSONDecoder().decode(AppboosterExperimentsValuesResponse.self, from: data)
+                  let experimentsValuesResponse = try JSONDecoder().decode(ProbaExperimentsValuesResponse.self, from: data)
 
                   self.experimentsValues = experimentsValuesResponse.experiments
-                  AppboosterDebugMode.isOn = experimentsValuesResponse.meta.debug
+                  ProbaDebugMode.isOn = experimentsValuesResponse.meta.debug
 
                   completion(nil)
                 }
                 catch {
-                  let abError = AppboosterABError(error: "Experiments values decoding error: \(error.localizedDescription)",
+                  let abError = ProbaABError(error: "Experiments values decoding error: \(error.localizedDescription)",
                     code: 0)
 
-                  self.debugAndLog("[AppboosterSDK] Error – \(abError.error), error code: \(abError.code)")
+                  self.debugAndLog("[Proba] Error – \(abError.error), error code: \(abError.code)")
 
                   completion(abError)
                 }
@@ -150,11 +150,11 @@ public final class AppboosterSDK: NSObject {
   }
 
   private func fetchAllExperiments(timeoutInterval: TimeInterval,
-                                   completion: ((_ abError: AppboosterABError?) -> Void)? = nil) {
+                                   completion: ((_ abError: ProbaABError?) -> Void)? = nil) {
     guard let url = createUrl(path: API.optionsPath) else {
-      let abError = AppboosterABError(error: "Invalid url", code: 0)
+      let abError = ProbaABError(error: "Invalid url", code: 0)
 
-      debugAndLog("[AppboosterSDK] Fetch all experiments error – \(abError.error), error code: \(abError.code)")
+      debugAndLog("[Proba] Fetch all experiments error – \(abError.error), error code: \(abError.code)")
 
       completion?(abError)
 
@@ -169,19 +169,19 @@ public final class AppboosterSDK: NSObject {
               guard let self = self else { return }
 
               if let abError = abError {
-                self.debugAndLog("[AppboosterSDK] Fetch all experiments error – \(abError.error), error code: \(abError.code)")
+                self.debugAndLog("[Proba] Fetch all experiments error – \(abError.error), error code: \(abError.code)")
 
                 completion?(abError)
               } else if let data = data {
                 do {
-                  let experimentsResponse = try JSONDecoder().decode(AppboosterExperimentsResponse.self, from: data)
+                  let experimentsResponse = try JSONDecoder().decode(ProbaExperimentsResponse.self, from: data)
 
                   State.experiments.removeAll()
                   experimentsResponse.experiments.forEach { experiment in
                     if experiment.status == .finished {
                       if let experimentValue = State.defaultExperimentsValues.first(where: { $0.key == experiment.key }),
                         let defaultOption = experiment.options.first(where: { $0.value == experimentValue.value }) {
-                        let finishedExperiment = AppboosterExperiment(
+                        let finishedExperiment = ProbaExperiment(
                           name: experiment.name,
                           key: experiment.key,
                           status: .finished,
@@ -203,10 +203,10 @@ public final class AppboosterSDK: NSObject {
                   completion?(nil)
                 }
                 catch {
-                  let abError = AppboosterABError(error: "All experiments decoding error: \(error.localizedDescription)",
+                  let abError = ProbaABError(error: "All experiments decoding error: \(error.localizedDescription)",
                     code: 0)
 
-                  self.debugAndLog("[AppboosterSDK] Error – \(abError.error), error code: \(abError.code)")
+                  self.debugAndLog("[Proba] Error – \(abError.error), error code: \(abError.code)")
 
                   completion?(abError)
                 }
@@ -217,7 +217,7 @@ public final class AppboosterSDK: NSObject {
   // MARK: Getters
 
   public func value<T>(_ key: String) -> T? {
-    let value = AppboosterDebugMode.isOn
+    let value = ProbaDebugMode.isOn
       ? debugExperimentsValues.first(where: { $0.key == key })?.value.value as? T
       : nil
 
@@ -235,7 +235,7 @@ public final class AppboosterSDK: NSObject {
       ($0.key, $0.value.value)
     })
 
-    guard AppboosterDebugMode.isOn else { return experiments }
+    guard ProbaDebugMode.isOn else { return experiments }
 
     let debugExperiments = Dictionary(uniqueKeysWithValues: debugExperimentsValues.map {
       ($0.key, $0.value.value)

@@ -1,19 +1,19 @@
 //
 //  ViewController.swift
-//  AppboosterSDKExample
+//  ProbaExample
 //
-//  Created by Appbooster on 22.07.2020.
-//  Copyright © 2020 Appbooster. All rights reserved.
+//  Created by Proba on 22.07.2020.
+//  Copyright © 2020 Proba. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: AppboosterShakeToDebugController {
+class ViewController: ProbaShakeToDebugController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    let ab = AppboosterSDK(
+    let ab = Proba(
       sdkToken: "<YOUR_SDK_TOKEN>",
       appId: "<YOUR_APP_ID>",
       defaults: [
