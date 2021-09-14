@@ -1,18 +1,18 @@
 //
-//  AppboosterKeychain.swift
-//  AppboosterSDK
+//  ProbaKeychain.swift
+//  Proba
 //
-//  Created by Appbooster on 22/07/2020.
-//  Copyright © 2020 Appbooster. All rights reserved.
+//  Created by Proba on 22/07/2020.
+//  Copyright © 2020 Proba. All rights reserved.
 //
 
 import UIKit
 import Security
 
-struct AppboosterKeychain {
+struct ProbaKeychain {
 
-  private static let userAccount: NSString = "AppboosterUser"
-  private static let deviceIdKey: NSString = "AppboosterDeviceID"
+  private static let userAccount: NSString = "ProbaUser"
+  private static let deviceIdKey: NSString = "ProbaDeviceID"
 
   private static let kSecClassValue: NSString = NSString(format: kSecClass)
   private static let kSecAttrAccountValue: NSString = NSString(format: kSecAttrAccount)

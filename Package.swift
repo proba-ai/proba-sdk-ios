@@ -4,18 +4,18 @@
 import PackageDescription
 
 let package = Package(
-    name: "AppboosterSDK",
+    name: "Proba",
     platforms: [.iOS(.v9)],
     products: [
         .library(
-            name: "AppboosterSDK",
-            targets: ["AppboosterSDK"]
+            name: "Proba",
+            targets: ["Proba"]
         ),
     ],
     targets: [
         .target(
-            name: "AppboosterSDK",
-            path: "AppboosterSDK"
+            name: "Proba",
+            path: "Proba"
         ),
     ]
 )

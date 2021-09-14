@@ -1,9 +1,9 @@
 //
 //  ExperimentsController.swift
-//  AppboosterSDK
+//  Proba
 //
-//  Created by Appbooster on 22/07/2020.
-//  Copyright © 2020 Appbooster. All rights reserved.
+//  Created by Proba on 22/07/2020.
+//  Copyright © 2020 Proba. All rights reserved.
 //
 
 import UIKit
@@ -22,7 +22,7 @@ class ExperimentsController: UITableViewController {
 
   // MARK: - Private Properties
 
-  private var experiments: [AppboosterExperiment] = State.experiments {
+  private var experiments: [ProbaExperiment] = State.experiments {
     didSet {
       State.experiments = experiments
     }
@@ -126,7 +126,7 @@ class ExperimentsController: UITableViewController {
     if let index = State.debugExperimentsValues.firstIndex(where: { experimentValue in experimentValue.key == experiment.key }) {
       State.debugExperimentsValues.remove(at: index)
     }
-    let experimentValue = AppboosterExperimentValue(key: experiment.key, value: experiment.options[indexPath.row].value, optionId: nil)
+    let experimentValue = ProbaExperimentValue(key: experiment.key, value: experiment.options[indexPath.row].value, optionId: nil)
     State.debugExperimentsValues.append(experimentValue)
 
     tableView.deselectRow(at: indexPath, animated: true)
@@ -233,8 +233,8 @@ class ExperimentsController: UITableViewController {
 
     var arrowImage: UIImage?
 
-    let bundle = Bundle(for: AppboosterSDK.self)
-    if let bundleURL = bundle.resourceURL?.appendingPathComponent("AppboosterSDK.bundle") {
+    let bundle = Bundle(for: Proba.self)
+    if let bundleURL = bundle.resourceURL?.appendingPathComponent("Proba.bundle") {
       let resourceBundle = Bundle(url: bundleURL)
       arrowImage = UIImage(named: "arrow", in: resourceBundle, compatibleWith: nil)
     }

@@ -1,9 +1,9 @@
 //
 //  ExperimentsCell.swift
-//  AppboosterSDK
+//  Proba
 //
-//  Created by Appbooster on 22/07/2020.
-//  Copyright © 2020 Appbooster. All rights reserved.
+//  Created by Proba on 22/07/2020.
+//  Copyright © 2020 Proba. All rights reserved.
 //
 
 import UIKit
@@ -22,7 +22,7 @@ class ExperimentCell: UITableViewCell {
   private var keyLabel: UILabel!
 
   func configure(
-    with option: AppboosterExperimentOption,
+    with option: ProbaExperimentOption,
     isCurrent: Bool,
     isSelected: Bool
   ) {
@@ -32,8 +32,8 @@ class ExperimentCell: UITableViewCell {
 
     var image: UIImage?
 
-    let bundle = Bundle(for: AppboosterSDK.self)
-    if let bundleURL = bundle.resourceURL?.appendingPathComponent("AppboosterSDK.bundle") {
+    let bundle = Bundle(for: Proba.self)
+    if let bundleURL = bundle.resourceURL?.appendingPathComponent("Proba.bundle") {
       let resourceBundle = Bundle(url: bundleURL)
       let imageName = isSelected ? "checkbox-fill" : "checkbox"
       image = UIImage(named: imageName, in: resourceBundle, compatibleWith: nil)

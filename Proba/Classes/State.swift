@@ -1,34 +1,34 @@
 //
 //  State.swift
-//  AppboosterSDK
+//  Proba
 //
-//  Created by Appbooster on 22/07/2020.
-//  Copyright © 2020 Appbooster. All rights reserved.
+//  Created by Proba on 22/07/2020.
+//  Copyright © 2020 Proba. All rights reserved.
 //
 
 import Foundation
 
 struct State {
 
-  static var experimentsValues: [AppboosterExperimentValue] {
+  static var experimentsValues: [ProbaExperimentValue] {
     get { getExperimentsValues(for: #function) }
     set(newValue) { setExperimentsValues(newValue, for: #function) }
   }
 
-  static var debugExperimentsValues: [AppboosterExperimentValue] {
+  static var debugExperimentsValues: [ProbaExperimentValue] {
     get { getExperimentsValues(for: #function) }
     set(newValue) { setExperimentsValues(newValue, for: #function) }
   }
 
-  static var defaultExperimentsValues: [AppboosterExperimentValue] {
+  static var defaultExperimentsValues: [ProbaExperimentValue] {
     get { getExperimentsValues(for: #function) }
     set(newValue) { setExperimentsValues(newValue, for: #function) }
   }
 
-  static var experiments: [AppboosterExperiment] {
+  static var experiments: [ProbaExperiment] {
     get {
       if let data = UserDefaults.standard.object(forKey: #function) as? Data,
-        let value = try? JSONDecoder().decode([AppboosterExperiment].self, from: data) {
+        let value = try? JSONDecoder().decode([ProbaExperiment].self, from: data) {
         return value
       }
 
@@ -43,16 +43,16 @@ struct State {
 
   // MARK: Service
 
-  private static func getExperimentsValues(for key: String) -> [AppboosterExperimentValue] {
+  private static func getExperimentsValues(for key: String) -> [ProbaExperimentValue] {
     if let data = UserDefaults.standard.object(forKey: key) as? Data,
-      let value = try? JSONDecoder().decode([AppboosterExperimentValue].self, from: data) {
+      let value = try? JSONDecoder().decode([ProbaExperimentValue].self, from: data) {
       return value
     }
 
     return []
   }
 
-  private static func setExperimentsValues(_ data: [AppboosterExperimentValue], for key: String) {
+  private static func setExperimentsValues(_ data: [ProbaExperimentValue], for key: String) {
     if let data = try? JSONEncoder().encode(data) {
       UserDefaults.standard.set(data, forKey: key)
     }

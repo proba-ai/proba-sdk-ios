@@ -1,14 +1,14 @@
 //
-//  AppboosterShakeToDebugController.swift
-//  AppboosterSDK
+//  ProbaShakeToDebugController.swift
+//  Proba
 //
-//  Created by Appbooster on 24.08.2020.
-//  Copyright © 2020 Appbooster. All rights reserved.
+//  Created by Proba on 24.08.2020.
+//  Copyright © 2020 Proba. All rights reserved.
 //
 
 import UIKit
 
-open class AppboosterShakeToDebugController: UIViewController {
+open class ProbaShakeToDebugController: UIViewController {
 
   // MARK: - UIResponder
 
@@ -17,10 +17,10 @@ open class AppboosterShakeToDebugController: UIViewController {
   }
 
   override open func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-    if AppboosterDebugMode.isOn &&
-      AppboosterDebugMode.usingShake
+    if ProbaDebugMode.isOn &&
+      ProbaDebugMode.usingShake
       && motion == .motionShake {
-      AppboosterDebugMode.showMenu(from: self)
+      ProbaDebugMode.showMenu(from: self)
     }
   }
 
