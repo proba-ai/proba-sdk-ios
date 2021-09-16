@@ -170,7 +170,7 @@
 			dependencies = (
 			);
 			name = ProbaExample;
-			productName = AppboosterSDKExample;
+			productName = ProbaExample;
 			productReference = 3E269E1824C85170002C5608 /* ProbaExample.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -182,7 +182,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1160;
-				ORGANIZATIONNAME = Appbooster;
+				ORGANIZATIONNAME = Proba;
 				TargetAttributes = {
 					3E269E1724C85170002C5608 = {
 						CreatedOnToolsVersion = 11.6;
