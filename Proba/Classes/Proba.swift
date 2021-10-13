@@ -11,7 +11,7 @@ import AdSupport
 
 public final class Proba: NSObject {
 
-  private let serverUrl: String = "https://api.Proba.com"
+  private let serverUrl: String = "https://api.proba.ai"
   private let sdkToken: String
   private let appId: String
   private let deviceId: String
