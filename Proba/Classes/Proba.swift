@@ -42,9 +42,13 @@ public final class Proba: NSObject {
       ProbaExperimentValue(key: key, value: value as? AnyCodable ?? "", optionId: nil)
     }
 
-    self.deviceId = deviceId
-      ?? ProbaKeychain.getDeviceId()
-      ?? ProbaKeychain.setNewDeviceId()
+    if let deviceId = deviceId, !deviceId.isEmpty {
+      self.deviceId = deviceId
+    } else {
+      self.deviceId = ProbaKeychain.getDeviceId()
+        ?? ProbaKeychain.setNewDeviceId()
+    }
+
     self.deviceProperties = deviceProperties
 
     ProbaDebugMode.usingShake = usingShake
