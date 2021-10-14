@@ -12,6 +12,8 @@
 		3E269E2324C85170002C5608 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E269E2124C85170002C5608 /* Main.storyboard */; };
 		3E269E2524C85173002C5608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E269E2424C85173002C5608 /* Assets.xcassets */; };
 		3E269E2824C85173002C5608 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E269E2624C85173002C5608 /* LaunchScreen.storyboard */; };
+		835F28F227184ABC003E6A0F /* String+GenerateRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835F28F127184ABC003E6A0F /* String+GenerateRandom.swift */; };
+		835F28F527184C90003E6A0F /* ExperimentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835F28F427184C90003E6A0F /* ExperimentsService.swift */; };
 		83D798D626F07C7200F70B31 /* ProbaExperimentValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D798BF26F07C7200F70B31 /* ProbaExperimentValue.swift */; };
 		83D798D726F07C7200F70B31 /* ProbaExperimentStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D798C026F07C7200F70B31 /* ProbaExperimentStatus.swift */; };
 		83D798D826F07C7200F70B31 /* ProbaDebugMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D798C126F07C7200F70B31 /* ProbaDebugMode.swift */; };
@@ -44,6 +46,8 @@
 		3E269E2424C85173002C5608 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E269E2724C85173002C5608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E269E2924C85173002C5608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		835F28F127184ABC003E6A0F /* String+GenerateRandom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+GenerateRandom.swift"; sourceTree = "<group>"; };
+		835F28F427184C90003E6A0F /* ExperimentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentsService.swift; sourceTree = "<group>"; };
 		83D798BF26F07C7200F70B31 /* ProbaExperimentValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProbaExperimentValue.swift; sourceTree = "<group>"; };
 		83D798C026F07C7200F70B31 /* ProbaExperimentStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProbaExperimentStatus.swift; sourceTree = "<group>"; };
 		83D798C126F07C7200F70B31 /* ProbaDebugMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProbaDebugMode.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 			children = (
 				3E269E1B24C85170002C5608 /* AppDelegate.swift */,
 				3E269E1F24C85170002C5608 /* ViewController.swift */,
+				835F28F427184C90003E6A0F /* ExperimentsService.swift */,
+				835F28F127184ABC003E6A0F /* String+GenerateRandom.swift */,
 				3E269E2124C85170002C5608 /* Main.storyboard */,
 				3E269E2424C85173002C5608 /* Assets.xcassets */,
 				3E269E2624C85173002C5608 /* LaunchScreen.storyboard */,
@@ -242,6 +248,8 @@
 				83D798D926F07C7200F70B31 /* ProbaExperimentValueMeta.swift in Sources */,
 				83D798E626F07C7200F70B31 /* ProbaShakeToDebugController.swift in Sources */,
 				83D798D626F07C7200F70B31 /* ProbaExperimentValue.swift in Sources */,
+				835F28F227184ABC003E6A0F /* String+GenerateRandom.swift in Sources */,
+				835F28F527184C90003E6A0F /* ExperimentsService.swift in Sources */,
 				83D798D826F07C7200F70B31 /* ProbaDebugMode.swift in Sources */,
 				83D798E326F07C7200F70B31 /* ExperimentsCell.swift in Sources */,
 				83D798DA26F07C7200F70B31 /* ExperimentsController.swift in Sources */,
