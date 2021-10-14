@@ -245,10 +245,15 @@ public final class Proba: NSObject {
   }
 
   public func experimentsWithDetails() -> [String: Any] {
-    var dict = [String: Any]()
-    experimentsValues.forEach { experiment in dict.merge(experiment.details) { (v1, v2) in v1 } }
+    var experiments = [String: Any]()
+    experimentsValues.forEach { experiment in experiments.merge(experiment.details) { (v1, v2) in v1 } }
 
-    return dict
+    guard ProbaDebugMode.isOn else { return experiments }
+
+    var debugExperiments = [String: Any]()
+    debugExperimentsValues.forEach { experiment in debugExperiments.merge(experiment.details) { (v1, v2) in v1 } }
+
+    return experiments.merging(debugExperiments) { $1 }
   }
 
   // MARK: Service
