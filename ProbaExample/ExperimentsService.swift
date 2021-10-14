@@ -20,7 +20,7 @@ struct ExperimentsService {
     case paywallB
   }
 
-  /*private */let proba: Proba
+  private let proba: Proba
 
   // for test purposes; use some fixed value in production!
   private let deviceId = String.random(ofLength: 8)

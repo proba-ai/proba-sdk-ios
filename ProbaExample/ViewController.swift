@@ -23,9 +23,6 @@ class ViewController: ProbaShakeToDebugController {
 
       print("buttonColor: \(self.experimentsService.buttonColor)")
       print("paywall: \(self.experimentsService.paywall)")
-
-      print("experiments: \(self.experimentsService.proba.experiments())")
-      print("experimentsWithDetails: \(self.experimentsService.proba.experimentsWithDetails())")
     }
   }
 }
