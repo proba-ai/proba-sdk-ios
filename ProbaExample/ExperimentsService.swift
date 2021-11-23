@@ -27,8 +27,8 @@ struct ExperimentsService {
 
   init() {
     proba = Proba(
-      sdkToken: "7EF3877C105644C5ABEA3D8A53822CBE",
-      appId: "17598",
+      sdkToken: "6C13290601894E9AB6641AC51B78B41B",
+      appId: "24685",
       deviceId: deviceId,
       usingShake: true,
       defaults: [
